@@ -230,7 +230,7 @@ function getExchangeRate() {
     .then((result) => {
       let exchangeRate = result.conversion_rates[toCurrency.value];
       let totalExRate = (amountVal * exchangeRate).toFixed(2);
-      exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate} ${toCurrency.value}`;
+      exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ${toCurrency.value}`;
     })
     .catch(() => {
       exchangeRateTxt.innerText = "Something went wrong";
